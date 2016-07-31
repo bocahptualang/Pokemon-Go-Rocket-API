@@ -23,6 +23,13 @@ namespace PokemonGo.RocketAPI.Rpc
         {
         }
 
+        public async Task SetAuthToken(string authToken)
+        {
+            _client.AuthType = AuthType.Google;
+            _client.AuthToken = authToken;
+            await SetServer();
+        }
+
         public async Task DoGoogleLogin(string username,string password)
         {
             _client.AuthType = AuthType.Google;
